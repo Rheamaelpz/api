@@ -1,9 +1,7 @@
 # API Name
 
 
-Brief
-description of your API.
-
+Sample API
 
  
 
