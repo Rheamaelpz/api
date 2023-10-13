@@ -58,12 +58,29 @@ Example Usage: POST /deleteName
 
 
 ## Request
-Payload
+Request Payload Structure:
 
+For the /postName endpoint, the request payload should be a JSON object containing fname and lname. 
+For example:
+{
+    "lname": "Hortizuela",
+    "fname": "Manny"
+}
 
-Explain the
-structure of the request payload, including any required or optional fields.
-You can use JSON examples to illustrate.
+For the /updateName endpoint, the request payload should include the id of the name to be updated along with the new fname and lname.
+For example:
+{
+  "id":1,
+  "lname":"wick",
+   "fname":"john"
+}
+
+For the /deleteName endpoint, the request payload should include the id of the name to be deleted.
+For example:
+{
+  "id":1
+}
+
 
 
  
@@ -72,9 +89,36 @@ You can use JSON examples to illustrate.
 ## Response
 
 
-Describe the
-structure of the API response, including possible status codes and JSON
-examples.
+API Response:
+
+The response for most endpoints contains a JSON object with a status field (either "success" or "error") and a data field. The structure of the data field varies based on the specific endpoint.
+
+For /postName:
+{
+    "status": "success",
+    "data": null
+}
+
+For /getName:
+{
+    "status": "success",
+    "data": [
+        {"lname": "Hortizuela", "fname": "Manny"},
+        {"lname": "Licayan", "fname": "Arnold"}
+    ]
+}
+
+
+For /updateName:
+{
+         "status":"success","data":null
+}
+
+For /deleteName:
+{
+         "status":"success","data":null
+}
+
 
 
  
@@ -83,8 +127,17 @@ examples.
 ## Usage
 
 
-Provide code
-examples or instructions on how to use your API.
+To retrieve a greeting with a concatenated full name, make a GET request to /getName/{lname}/{fname}.
+
+To add a new name, make a POST request to /postName with a JSON payload containing fname and lname.
+
+To retrieve a list of names, make a GET request to /getName.
+
+To update an existing name, make a POST request to /updateName with a JSON payload containing id, fname, and lname.
+
+To delete a name, make a POST request to /deleteName with a JSON payload containing id.
+
+
 
 
  
@@ -93,8 +146,9 @@ examples or instructions on how to use your API.
 ## License
 
 
-Mention the
-license under which your API is distributed.
+No license
+
+
 
 
  
@@ -103,12 +157,13 @@ license under which your API is distributed.
 ## Contributors
 
 
-List
-contributors or give credit to any external libraries or resources used.
+Janfranz L. Galang & Rhea Mae D. Lopez
+
+
 
 
  
 
 
 ## Contact
-Information"# api" 
+For inquiries or support, please contact janfranz.galang@student.dmmmsu.edu.ph
